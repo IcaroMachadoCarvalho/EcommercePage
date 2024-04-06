@@ -1,25 +1,29 @@
-<h1>IntroSection</h1>
+<h1>EcommercePage</h1>
 
-<p align="center"><img src="https://github.com/IcaroMachadoCarvalho/IntroSection/assets/133804302/18a1634a-3a58-4b85-8638-f60ceeb5b254" alt="project-image" width="70%" height="400/"></p>
+<p align="center"><img src="" alt="project-image" width="70%" height="400/"></p>
 
-<p id="description">Esse projeto mostra uma página de introdutória de um site chamado Snap idealizada pelo FrontEnd Mentor. Tendo em sua composição o conteúdo principal uma navbar com dropdwons, ícones e botões.</p>
+
+<p id="description">Esse projeto mostra uma página de uma loja virtual de um site idealizada pelo FrontEnd Mentor. Tendo em sua composição o conteúdo principal uma navbar, a seção dos produtos, carrinho de compras e pedidos.</p>
+
+<h2>⚙️ Status: Em desenvolvimento</h2>
 
 <h2>Screenshots</h2>
 <div align="center">
 
-<img src="https://github.com/IcaroMachadoCarvalho/IntroSection/assets/133804302/7449c6f2-c1c1-40b3-98fc-06fdf8480ccf" alt="video-desktop">
-<img src="https://github.com/IcaroMachadoCarvalho/IntroSection/assets/133804302/179f9450-11b5-4a40-a876-ab0d9509a49e" alt="video-mobile">    
-<!-- ![video-version-desktop-snap1-ezgif com-video-to-gif-converter](https://github.com/IcaroMachadoCarvalho/IntroSection/assets/133804302/7449c6f2-c1c1-40b3-98fc-06fdf8480ccf)
-![video-version-mobile-snap1-ezgif com-video-to-gif-converter](https://github.com/IcaroMachadoCarvalho/IntroSection/assets/133804302/179f9450-11b5-4a40-a876-ab0d9509a49e) -->
+<img src="" alt="video-desktop">
+<img src="" alt="video-mobile">    
+
 </div>
 
 <h2>🧐 Recursos principais</h2>
 
 Nessa parte temos algumas das principais características do projeto:
 
+*   Carrinho de compras 
+*   Galeria de imagens versão desktop
+*   Zoom dos itens da galeria
+*   Slider de imagens na versão mobile
 *   Design Responsivo
-*   Ícones animados
-*   Navbar mobile animado
 
 <h2>💻 Tecnologias usadas no projeto</h2>
 
@@ -38,7 +42,7 @@ Nessa parte temos algumas das principais características do projeto:
 <p>2. Clone o repositório</p>
 
 ```
-git clone https://github.com/IcaroMachadoCarvalho/.git
+git clone https://github.com/IcaroMachadoCarvalho/EcommercePage.git
 ```
 
 <p>3. Abra o projeto pelo explorador de arquivos</p>
