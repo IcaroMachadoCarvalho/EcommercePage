@@ -7,6 +7,7 @@ body {
   background-color: white;
   width: 100%;
   height: 100%;
+  /* overflow-x: hidden; */
 }
 
 .header {
@@ -14,19 +15,66 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 15px;
+  background-color: lightgray;
 }
 
 .header__intro {
   width: 25%;
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 30px;
   align-items: center;
+}
+
+.header__intro > .intro__menu:hover{
+  cursor: pointer;
 }
 
 .header__avatar {
   width: 30%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 30px;
 }
+
+/* .avatar__cart{
+  width: 40px;
+} */
+/* 
+.cart__section::before{
+  content: "";
+  background-color: orange;
+  position: relative;
+  top: 0px;
+  left: 33px;
+  display: inline-block;
+  height: 12px;
+  width: 17px;
+  border-radius: 50%;
+} */
+
+.avatar__cart::after{
+  content: "";
+  background-color: black;
+  position: relative;
+  left: 0;
+  top: 21px;
+  display: block;
+  opacity: 0;
+  width: 100%;
+  height: 2px;
+  transition: 0.6s;
+}
+.avatar__cart:hover{
+  cursor: pointer;
+}
+.avatar__cart:hover::after{
+  opacity: 1;
+}
+
+.avatar__img > img{
+  width: 35px;
+}
+
