@@ -36,3 +36,22 @@ btnNext.addEventListener("click", ()=>{
 
 clearSlide();
 currentSlide(0);
+
+const navBar = document.querySelector("#navBar");
+const menuBtn = document.querySelector("#menuNav");
+const closeNav = document.querySelector("#closeNav"); 
+
+menuBtn.addEventListener("click", ()=>{
+    navBar.style.opacity = 1;
+    navBar.style.width = "55%";
+    document.querySelector("#backgroundNav").style.opacity = 0.5;
+    document.querySelector("#backgroundNav").style.zIndex = 7;
+});
+
+closeNav.addEventListener("click", ()=>{
+    navBar.style.width = "0%";
+    navBar.style.opacity = 0;
+    document.querySelector("#backgroundNav").style.opacity = 0;
+    document.querySelector("#backgroundNav").style.zIndex = -10;
+});
+
