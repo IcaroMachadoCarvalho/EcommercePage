@@ -46,8 +46,16 @@ body {
   margin: 10px;
 }
 
+.header__intro > .intro__menu > svg > path{
+  transition: 0.3s;
+}
+
 .header__intro > .intro__menu:hover {
   cursor: pointer;
+}
+
+.header__intro > .intro__menu:hover > svg >path{
+  fill: black;
 }
 
 /* Navbar mobile */
@@ -205,21 +213,22 @@ main{
 /* Shopping cart */
 .shopping__cart {
   position: absolute;
-  left: -3px;
-  background-color: lightblue;
+  left: 0.5%;
+  background-color: white;
   display: block;
-  height: 200px;
+  height: 260px;
   width: 97%;
   opacity: 0;
-  margin: 10px;
+  margin: 18px 7% 10px 1%;
   border: none;
   border-radius: 8px;
-  z-index: 5;
+  z-index: 4;
   transition: 0.6s;
 }
 
 .shopping__cart > h1 {
-  padding: 15px;
+  padding: 19px;
+  margin-left: 4%;
   border-bottom: 1px solid rgb(236, 235, 238);
 }
 
@@ -228,6 +237,73 @@ main{
   justify-content: center;
   align-items: center;
   height: 70%;
+}
+
+.shopping__products > h1{
+  color: rgb(106, 110, 118);
+}
+
+.products{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 100%;
+  transition: 0.4s;
+}
+
+.products__info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 83%;
+  margin: 10px;
+}
+
+.products__info > img{
+  width: 55px;
+  height: 55px;
+  border-radius: 7px;
+}
+
+
+.products__info .products__title,
+.products__currentPrice{
+  color: rgb(106, 110, 118);
+}
+
+.products .products__total{
+  font-size: 16px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.products .products__info > svg:hover{
+  cursor: pointer;
+}
+
+.products__button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 83%;
+  background-color: orangered;
+  color: white;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 7px;
+  padding: 15px;
+  margin: 10px 22px 10px 10px;
+  border-radius: 7px;
+  transition: 0.6s;
+  border: 1px solid transparent;
+}
+
+.products__button:hover{
+  background-color: white;
+  color: orangered;
+  border: 1px solid orangered;
 }
 
 /* Slider */
