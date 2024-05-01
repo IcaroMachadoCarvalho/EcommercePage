@@ -6,7 +6,6 @@ let indexSlide = 0;
 
 function currentSlide(index){
     clearSlide();
-    // console.log(index);
     slides[index].style.display = "block";
 }
 
@@ -41,89 +40,99 @@ currentSlide(0);
 const navBar = document.querySelector("#navBar");
 const menuBtn = document.querySelector("#menuNav");
 const closeNav = document.querySelector("#closeNav"); 
+const headerBackground = document.querySelector("#backgroundNav");
+const headerOptions =  document.querySelector(".header__options");
 
+// Open menu
 menuBtn.addEventListener("click", ()=>{
+    headerOptions.style.opacity = "1";
     navBar.style.opacity = 1;
     navBar.style.width = "55%";
-    document.querySelector("#backgroundNav").style.opacity = 0.5;
-    document.querySelector("#backgroundNav").style.zIndex = 8;
-});
-//colocar clicar fora fecha tbm
-closeNav.addEventListener("click", ()=>{
-    navBar.style.width = "0%";
-    navBar.style.opacity = 0;
-    document.querySelector("#backgroundNav").style.opacity = 0;
-    document.querySelector("#backgroundNav").style.zIndex = -10;
+    headerBackground.style.opacity = 0.5;
+    headerBackground.style.zIndex = 8;
 });
 
+// Close menu
+closeNav.addEventListener("click", ()=>{
+    headerOptions.style.opacity = "0";
+    navBar.style.width = "0%";
+    navBar.style.opacity = 0;
+    headerBackground.style.opacity = 0;
+   headerBackground.style.zIndex = -10;
+});
+
+// Close menu without clicking the close icon
+headerBackground.addEventListener("click", ()=>{
+    headerOptions.style.opacity = "0";
+    navBar.style.width = "0%";
+    navBar.style.opacity = 0;
+    headerBackground.style.opacity = 0;
+    headerBackground.style.zIndex = -10;
+});
 
 // Shopping section
 const btnMinus = document.querySelector("#btnMinus");
 const btnPlus = document.querySelector("#btnPlus");
 let counter = document.querySelector("#counter");
-let quantity = 1;
+let quantity = 0;
 
+// when the website starts the counter will have zero
 counter.innerHTML = quantity;
 
-function updatePrices(qtd){
-    document.querySelector("#currentPrice").innerHTML = qtd * 125 + ".00";
-    document.querySelector("#originalPrice").innerHTML = qtd * 250 + ".00";
-}
-
-updatePrices(quantity);
-
+// Decrease the counter
 btnMinus.addEventListener("click", ()=>{
     if(quantity <= 1){
         console.log(quantity);
-        quantity = 1;   
+        quantity = 0;   
         counter.innerHTML = quantity;
-        updatePrices(1);
     }else{
         counter.innerHTML = --quantity;
-        // console.log(quantity);
-        updatePrices(quantity);
     }
 });
+
+// Increase the counter
 btnPlus.addEventListener("click", ()=>{
     counter.innerHTML = ++quantity;
-    // console.log(quantity);
-    updatePrices(quantity);
 });
 
+// This message will appear in the cart when it´s empty
 const emptyTitle = document.querySelector("#emptyTitle");
+
+// This message will appear in the cart when the user adds any item
 const productsBlock = document.querySelector("#productsId");
 
+// This will transfer the items to the cart
 addCart.addEventListener("click", ()=>{
     let message = document.querySelector("#controllerMassage");
     if(quantity > 0){
+        document.querySelector("#iconQuantity").style.opacity = "1";
         productsBlock.style.display = "flex";
         emptyTitle.style.display = "none";
         updateQuantity(quantity);
-        quantity = 1;   
+        quantity = 0;   
         counter.innerHTML = quantity;
-        updatePrices(1);
         message.style.display = "none";
     }else{
         message.style.display = "block";
         window.scrollTo(0, document.body.scrollHeight);
-        // alert("Adicione no mínimo um produto");
     }
 });
 
 // Shopping cart
-const avatarCart = document.querySelector("#avatarCart");
-const shoppingCart = document.querySelector("#shoppingCart")
+const avatarCart = document.querySelector("#avatarCart"); // olhar
+const shoppingCart = document.querySelector("#shoppingCart"); 
 const iconCart = document.querySelector("#iconCart");
 const iconQuantity = document.querySelector("#iconQuantity");
 let currentQuantity = 0;
 
+// This event will modfiy the cart and it´s icon
 avatarCart.addEventListener("click",()=>{
     if(shoppingCart.style.opacity == "1"){
-        avatarCart.style.fill = "#69707D";
+        iconCart.classList.remove("active");
         shoppingCart.style.opacity = "0";
         shoppingCart.style.zIndex = "4";
     }else{
-        avatarCart.style.fill = "black";
+        iconCart.classList.add("active");   
         shoppingCart.style.opacity = "1";
         shoppingCart.style.zIndex = "7";
     }
@@ -132,11 +141,10 @@ avatarCart.addEventListener("click",()=>{
 function updateQuantity(quantity){
     currentQuantity += quantity;
     iconQuantity.innerHTML = currentQuantity;
-    updateItems(currentQuantity);
+    updatePrices(currentQuantity);
 }
 
-
-function updateItems(items){
+function updatePrices(items){
     document.querySelector("#productsCurrentQuantity").innerHTML = items;
     document.querySelector("#productsTotal").innerHTML = items * 125 + ".00";
 }
@@ -150,4 +158,5 @@ deleteItems.onclick = ()=>{
     iconQuantity.innerHTML = currentQuantity;
     emptyTitle.style.display = "block";
     productsBlock.style.display = "none";
+    document.querySelector("#iconQuantity").style.opacity = "0";
 };
