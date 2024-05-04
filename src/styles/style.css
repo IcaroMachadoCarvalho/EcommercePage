@@ -1,4 +1,4 @@
-@import url(https://fonts.google.com/specimen/Kumbh+Sans);
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
 
 /* Fade animation on slider */
 @keyframes fade {
@@ -41,7 +41,7 @@ body {
   width: 25%;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
   margin: 10px;
 }
@@ -156,7 +156,7 @@ body {
   gap: 30px;
 }
 
-#iconQuantity{
+#iconQuantity {
   opacity: 0;
   transition: 0.4s;
 }
@@ -204,9 +204,9 @@ body {
 
 .avatar__cart:hover svg > path {
   fill: black;
-} 
+}
 
-.avatar__cart svg > path.active{
+.avatar__cart svg > path.active {
   fill: black;
 }
 
@@ -217,7 +217,7 @@ body {
   transition: 0.4s;
 }
 
-.avatar__img > img:hover{
+.avatar__img > img:hover {
   border: 1px solid orangered;
 }
 
@@ -284,6 +284,10 @@ main {
   width: 55px;
   height: 55px;
   border-radius: 7px;
+}
+
+.products__info .products__cart {
+  margin: 20px;
 }
 
 .products__info .products__title,
@@ -363,10 +367,7 @@ main {
   margin-left: 60px;
 }
 
-.slider .slider__button svg >path {
-  /* cursor: pointer;
-  border: 1px solid orangered;
-  background-color: orangered; */
+.slider .slider__button svg > path {
   transition: 0.3s;
 }
 
@@ -411,28 +412,38 @@ main {
 
 .info > p {
   color: rgb(184, 185, 189);
-  font-size: 1rem;
+  font-size: calc(0.9rem + 1vw);
   font-weight: 500;
 }
 
 /* Controller part */
 /* Prices */
+.controller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .controller__prices {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  width: 100%;
+  padding: 15px 0px 15px 0px;
+  margin: 10px 28px 10px 10px;
 }
 
 .controller__prices .controller__cost > h1 {
   font-weight: 700;
-  font-size: 26px;
+  font-size: calc(18px + 1vw);
 }
 
 .controller__prices .controller__cost .discount {
   background-color: rgb(255, 240, 227);
   color: rgb(255, 125, 29);
   font-size: 16px;
+  font-size: calc(16px + 1vw);
   font-weight: 700;
   padding: 5px;
   border-radius: 7px;
@@ -443,23 +454,25 @@ main {
   justify-content: start;
   align-items: center;
   gap: 20px;
+  position: relative;
+  left: 24px;
 }
 
 .controller__prices .original__price {
   text-decoration: line-through;
   color: rgb(184, 185, 189);
-  font-size: 18px;
-  position: relative;
-  left: 31%;
-  /* margin-left: 32%; */
+  font-size: calc(16px + 1vw);
+  margin-right: max(5%, 3%);
 }
 
 /* Buttons */
 .controller__buttons {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
   padding: 5px 22px 5px 5px;
+  margin: 10px 28px 10px 10px;
   border: none;
   border-radius: 7px;
 }
@@ -475,7 +488,11 @@ main {
 
 .controller__buttons > span {
   background-color: rgb(247, 248, 253);
-  width: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 10px;
   font-size: 22px;
   font-weight: 500;
   text-align: center;
@@ -485,6 +502,8 @@ main {
 .controller__buttons .minus {
   background-color: rgb(247, 248, 253);
   padding: 25px;
+  position: relative;
+  left: 30px;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   border: 1px solid transparent;
@@ -494,6 +513,8 @@ main {
 .controller__buttons .plus {
   background-color: rgb(247, 248, 253);
   padding: 21px 28px;
+  position: relative;
+  right: 11px;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
   border: 1px solid transparent;
@@ -513,11 +534,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 83%;
   background-color: orangered;
   border-radius: 7px;
   padding: 15px;
-  margin: 10px 22px 10px 10px;
+  margin: 10px 28px 10px 10px;
   border-radius: 7px;
   transition: 0.6s;
   border: 1px solid transparent;
@@ -559,17 +579,3 @@ main {
   margin: 10px;
   display: none;
 }
-
-/*
-  Listas de afazeres
-  - Shadow no carrinho de compras ok
-  - Valores da tela inicial não se alteram ok
-  - pode deixar 0 no controlador quantiadade ok
-  - Hover de outra cor e alguns elementos faltou ok
-   cart falata (), btn slide e compra, icone avatar
-  - Efeito de desaparecer nos itens da navbar consertar
-
-  Corrigir preço riscado pos
-  icone cart
-
-*/

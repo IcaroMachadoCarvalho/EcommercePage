@@ -103,7 +103,6 @@ const productsBlock = document.querySelector("#productsId");
 
 // This will transfer the items to the cart
 addCart.addEventListener("click", ()=>{
-    let message = document.querySelector("#controllerMassage");
     if(quantity > 0){
         document.querySelector("#iconQuantity").style.opacity = "1";
         productsBlock.style.display = "flex";
@@ -111,10 +110,6 @@ addCart.addEventListener("click", ()=>{
         updateQuantity(quantity);
         quantity = 0;   
         counter.innerHTML = quantity;
-        message.style.display = "none";
-    }else{
-        message.style.display = "block";
-        window.scrollTo(0, document.body.scrollHeight);
     }
 });
 
