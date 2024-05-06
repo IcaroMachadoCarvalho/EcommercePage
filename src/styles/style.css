@@ -65,7 +65,7 @@ body {
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 100%;
+  height: 155%;
   width: 100%;
   z-index: -1;
   transition: 0.4s;
@@ -78,7 +78,7 @@ body {
   display: block;
   opacity: 0;
   width: 0%;
-  height: 135%;
+  height: 155%;
   z-index: 10;
   transition: 0.6s;
 }
@@ -578,4 +578,65 @@ main {
   border-radius: 7px;
   margin: 10px;
   display: none;
+}
+
+/* Desktop */
+@media screen  and (min-width:768px) {
+  
+  .header{
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px 0px 30px 0px;
+    border-bottom: 2px solid rgb(246, 245, 247);
+  }
+  
+  .header__intro{
+    width: auto;
+    margin: 0px;
+    gap: 45px;
+  }
+  
+  .intro__menu{
+    display: none;
+  }
+  .header__nav{
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: auto;
+    padding-top: 6px;
+    opacity: 1;
+  }
+  .header__close{
+    display: none;
+  }
+  .header__options{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 0px;
+    /* left: -40%; */
+    margin-left: 10px;
+    opacity: 1;
+  }
+  .header__options > li{
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(172, 170, 175);
+  }
+
+  .header__options > li > div{
+    height: 3px;
+    top: 39px;
+  }
+
+  .header__avatar{
+    width: auto;
+  }
+
+  main{
+    display: none;
+  }
 }
