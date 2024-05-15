@@ -580,6 +580,10 @@ main {
   display: none;
 }
 
+.gallery{
+  display: none;
+}
+
 /* Desktop */
 @media screen  and (min-width:768px) {
   
@@ -609,6 +613,9 @@ main {
     padding-top: 6px;
     opacity: 1;
   }
+  .header__background{
+    display: none;
+  }
   .header__close{
     display: none;
   }
@@ -631,27 +638,31 @@ main {
     height: 3px;
     top: 39px;
   }
-
+  
   .header__avatar{
     width: auto;
   }
 
   main{
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(12, 8fr);
+    grid-template-rows: repeat(4,1fr);
+    height: 80%;
+    padding-top: 20px;
   }
 
   .shopping__cart{
     max-width: 335px;
-    height: 25%;
+    height: 45%;
     top: -42px;
     right: 2%;
-    /* right: 20vw; */
     left: auto;
-    /* left: 58vw; */
     margin-left: 0px;
-    /* transform: translate(2%, 6%); */
+  }
+
+  main .slider{
+    display: none;
   }
 
   .shopping__products{
@@ -695,5 +706,139 @@ main {
     padding: 10px;
     height: 40px;
     margin: 0px;
+  }
+
+  .gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 3/5;
+    grid-row: 1/4;
+    width: 320px;
+  }
+
+  .gallery__main{
+    background-color: blue;
+    width: 100%;
+    height: 75%;
+    border-radius: 15px;
+  }
+
+  .gallery__secondary{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .gallery__options{
+    background-color: gray;
+    width: 50%;
+    height: 60px;
+    border: 2px solid transparent;
+    border-radius: 13px;
+  }
+
+  .gallery__options:hover{
+    opacity: 0.8;
+  }
+
+  .selected{
+    border: 2px solid orangered;
+  }
+
+  .info{
+    grid-column: 6/ span 5;
+    grid-row: 1/2;
+    gap: 20px;
+  }
+
+  .info > h2{
+    font-size: 12px;
+  }
+
+  .info > h1{
+    font-size: clamp(1.25rem, -5.0615rem + 11.4754vw, 2.125rem);
+    padding-bottom: 8px;
+  }
+
+  .info > p{
+    font-size: clamp(0.625rem, -0.1963rem + 1.7107vw, 0.875rem);
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  .controller{
+    grid-column: 6/ span 5;
+    grid-row: 2/4;
+    display: grid;
+    justify-content: start;
+    align-items: start;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,100px) ;
+    height: 200px;
+  }
+ 
+  .controller .controller__prices{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin: 15px;
+  }
+
+  .controller .controller__cost{
+    left: 0px;
+  }
+
+  .controller .controller__cost > h1{
+    font-size: 25px;
+    padding-bottom: 10px;
+  }
+  
+  .controller .controller__cost > .discount{
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .controller .original__price{
+    font-size: 17px;
+  }
+
+  .controller__buttons{
+    grid-column: 1/2;
+    grid-row: 2/2;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .controller__buttons .minus,
+  .controller__buttons span  {
+    left: auto;
+    height: 21px;
+  }
+
+  .controller__buttons .minus{
+    padding: 26px;
+  }
+
+  .controller .controller__submit{
+    grid-column: 2/4;
+    grid-row: 2/2;
+    width: clamp(80px, 70%, 70%);
+    margin: 0px;
+  }
+
+  .controller .controller__submit > .submit__part{
+    margin: 0px;
+  }
+  .controller .controller__submit > .submit__part > span{
+    font-size: clamp(0.875rem, 0.375rem + 1vw, 1rem);
+    margin-left: 1px;
+  }
+
+  .submit__part > svg{
+    left: -8px;
   }
 }

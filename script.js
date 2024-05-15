@@ -155,3 +155,15 @@ deleteItems.onclick = ()=>{
     productsBlock.style.display = "none";
     document.querySelector("#iconQuantity").style.opacity = "0";
 };
+
+window.onresize = ()=>{
+
+    if(window.innerWidth >= 768.00 &&  window.innerWidth <= 1073.64){
+        document.querySelector(".add").style.display = "none";
+        document.querySelector(".addCart").style.left = 0;
+    }else{
+        document.querySelector(".add").style.display = "inline-block";
+        document.querySelector(".addCart").style.left = "-8px";
+    }
+};
+
