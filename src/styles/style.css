@@ -718,9 +718,14 @@ main {
   }
 
   .gallery__main{
-    background-color: blue;
     width: 100%;
     height: 75%;
+    border-radius: 15px;
+  }
+  
+  .gallery__main > img{
+    height: 100%;
+    width: 100%;
     border-radius: 15px;
   }
 
@@ -732,19 +737,30 @@ main {
   }
 
   .gallery__options{
-    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
     height: 60px;
+    margin: 1px;
+    border: 2px solid transparent;
+    border-radius: 13px;
+    transition: 0.4s;
+  }
+  
+  .gallery__options > img{
+    width: 100%;
+    height: 100%;
     border: 2px solid transparent;
     border-radius: 13px;
   }
 
-  .gallery__options:hover{
-    opacity: 0.8;
-  }
-
   .selected{
     border: 2px solid orangered;
+  }
+
+  .selected img{
+    opacity: 0.3;
   }
 
   .info{

@@ -161,12 +161,22 @@
         </div>
       </div>
       <div class="gallery">
-        <div class="gallery__main"></div>
+        <div class="gallery__main">
+          <img id="imgGalleryMain" src="./src/assets/image-product-1.jpg" alt="">
+        </div>
         <div class="gallery__secondary">
-          <div class="gallery__options">1</div>
-          <div class="gallery__options">2</div>
-          <div class="gallery__options">3</div>
-          <div class="gallery__options">4</div>
+          <div class="gallery__options selected" onclick="product(this,0)">
+            <img src="./src/assets/image-product-1-thumbnail.jpg" alt="">
+          </div>
+          <div class="gallery__options" onclick="product(this,1)">
+            <img src="./src/assets/image-product-2-thumbnail.jpg" alt="">
+          </div>
+          <div class="gallery__options" onclick="product(this,2)">
+            <img src="./src/assets/image-product-3-thumbnail.jpg" alt="">
+          </div>
+          <div class="gallery__options" onclick="product(this,3)">
+            <img src="./src/assets/image-product-4-thumbnail.jpg" alt="">
+          </div>
         </div>
       </div>
       <div class="info">
