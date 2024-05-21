@@ -63,8 +63,15 @@ closeNav.addEventListener("click", () => {
 // Close menu without clicking the close icon
 headerBackground.addEventListener("click", () => {
   headerOptions.style.opacity = "0";
-  navBar.style.width = "0%";
-  navBar.style.opacity = 0;
+  if(window.innerWidth <= 768){
+    navBar.style.width = "0%";
+    navBar.style.opacity = 0;
+  }else{
+    navBar.style.width = "100%";
+    navBar.style.opacity = 1;
+    headerOptions.style.opacity = 1;
+    // makes the navBar appears on screens larger than 768px
+  }
   headerBackground.style.opacity = 0;
   headerBackground.style.zIndex = -10;
 });
@@ -154,18 +161,27 @@ deleteItems.onclick = () => {
   document.querySelector("#iconQuantity").style.opacity = "0";
 };
 
+// make the buy button responsive in these measurements
 window.onresize = () => {
   if (window.innerWidth >= 768.0 && window.innerWidth <= 1073.64) {
     document.querySelector(".add").style.display = "none";
     document.querySelector(".addCart").style.left = 0;
+    headerOptions.style.opacity = 1;
+    navBar.style.width = "100%"
+    navBar.style.opacity = 1;
+    headerBackground.style.opacity = 0;
   } else {
     document.querySelector(".add").style.display = "inline-block";
     document.querySelector(".addCart").style.left = "-8px";
+    navBar.style.width = "0%"
+    navBar.style.opacity = 0;
+    headerBackground.style.opacity = 0;
   }
 };
 
+// Functions to the gallery
 const galleryOptions = document.querySelectorAll(".gallery__options");
-
+// updates to the selected product
 function product(prod, pos) {
   for (let i = 0; i < galleryOptions.length; i++) {
     galleryOptions[i].classList.remove("selected");
@@ -173,7 +189,7 @@ function product(prod, pos) {
   galleryOptions[pos].classList.add("selected");
   changeContent(pos);
 }
-
+// change de content of the main gallery
 function changeContent(pos) {
   const imgGalleryMain = document.querySelector("#imgGalleryMain");
   switch (pos) {
@@ -190,4 +206,11 @@ function changeContent(pos) {
         imgGalleryMain.src = `./src/assets/image-product-${4}.jpg`;
         break;
   }
+}
+
+function showMore(){
+  headerBackground.style.opacity = 0.6;
+  headerBackground.style.display = "block";
+  headerBackground.style.zIndex = 20;
+  headerBackground.style.height = "100%";
 }
