@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./src/styles/style.css" />
   </head>
   <body>
+    <!-- Header -->
     <header class="header">
       <div class="header__intro">
         <div class="intro__menu" id="menuNav">
@@ -37,6 +38,7 @@
             />
           </svg>
         </div>
+        <!-- NavBar -->
         <ul class="header__options">
           <li>
             <p>Collections</p>
@@ -63,8 +65,9 @@
         </ul>
       </nav>
       </div>
+      <!-- Background for header and slider -->
       <div class="header__background" id="backgroundNav"></div>
-      
+      <!-- Avatar -->
       <div class="header__avatar">
         <div class="avatar__cart" id="avatarCart">
           <div id="iconQuantity">0</div>
@@ -120,6 +123,7 @@
           </div>
         </div>
       </div>
+      <!-- Slider -->
       <div class="slider">
         <div class="slider__controller">
           <button class="slider__button" id="previous">
@@ -160,25 +164,27 @@
           <img src="./src/assets/image-product-4.jpg" alt="slider img 3" />
         </div>
       </div>
+      <!-- Gallery -->
       <div class="gallery">
         <div class="gallery__main">
-          <img id="imgGalleryMain" src="./src/assets/image-product-1.jpg" alt="">
+          <img id="imgGalleryMain" src="./src/assets/image-product-1.jpg" data-index="0" ondblclick="galleryMainIndex()" alt="">
         </div>
         <div class="gallery__secondary">
-          <div class="gallery__options selected" onclick="product(this,0)" ondblclick="showMore()">
+          <div class="gallery__options selected" onclick="product(0,1)" ondblclick="showMore(0)">
             <img src="./src/assets/image-product-1-thumbnail.jpg" alt="">
           </div>
-          <div class="gallery__options" onclick="product(this,1)" ondblclick="showMore()">
+          <div class="gallery__options" onclick="product(1,1)" ondblclick="showMore(1)">
             <img src="./src/assets/image-product-2-thumbnail.jpg" alt="">
           </div>
-          <div class="gallery__options" onclick="product(this,2)" ondblclick="showMore()">
+          <div class="gallery__options" onclick="product(2,1)" ondblclick="showMore(2)">
             <img src="./src/assets/image-product-3-thumbnail.jpg" alt="">
           </div>
-          <div class="gallery__options" onclick="product(this,3)" ondblclick="showMore()">
+          <div class="gallery__options" onclick="product(3,1)" ondblclick="showMore(3)">
             <img src="./src/assets/image-product-4-thumbnail.jpg" alt="">
           </div>
         </div>
       </div>
+      <!-- Info about the product -->
       <div class="info">
         <h2>SNEAKERS COMPANY</h2>
         <h1>Fall Limited Edition <span>Sneakers</span></h1>
@@ -188,6 +194,7 @@
           the weather can offer.
         </p>
       </div>
+      <!-- Controller -->
       <div class="controller">
         <div class="controller__prices">
           <div class="controller__cost">
