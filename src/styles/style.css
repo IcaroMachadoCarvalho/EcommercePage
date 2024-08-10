@@ -16,20 +16,22 @@
   animation-iteration-count: 1;
 }
 
-html {
-  width: 100vw;
-  height: 100vh;
-  margin: 0px;
-  padding: 0px;
-}
+/* html::after,html::before,body::after,body::before {
+  width: 0px;
+} */
 
-body {
-  background-color: white;
+html,body {
+  position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+}
+
+body {
+  background-color: white;
+  /* overflow-x: hidden; */
   font-family: "kumbh", sans-serif;
 }
 
@@ -38,17 +40,21 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 15px 0px 15px 15px;
   margin: 0 auto;
 }
 
 .header__intro {
-  width: 25%;
+  width: 32%;
   display: flex;
-  justify-content: flex-start;
   gap: 30px;
   align-items: center;
-  /* margin: 10px; */
+  justify-content: center;
+}
+
+.header__intro > .intro__menu {
+  position: relative;
+  left: 15px;
 }
 
 .header__intro > .intro__menu > svg > path {
@@ -70,7 +76,7 @@ body {
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 155%;
+  height: 104%;
   width: 100%;
   z-index: -1;
   transition: 0.4s;
@@ -83,7 +89,7 @@ body {
   display: block;
   opacity: 0;
   width: 0%;
-  height: 155%;
+  height: 104%;
   z-index: 10;
   transition: 0.6s;
 }
@@ -119,7 +125,7 @@ body {
   justify-content: center;
   align-items: start;
   gap: 20px;
-  width: 100%;
+  width: 82%;
   opacity: 0;
   transition: 0.4s;
 }
@@ -158,7 +164,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
 }
 
 #iconQuantity {
@@ -279,18 +285,21 @@ main {
 }
 
 .products__info .products__cart {
-  margin: 20px;
+  margin: 0px 20px;
+  padding: 10px 0px;
 }
 
 .products__info .products__title,
 .products__currentPrice {
   color: rgb(106, 110, 118);
+  padding: 10px 0px 0px 0px;
 }
 
 .products .products__total {
   font-size: 16px;
   display: inline-block;
-  margin: 10px;
+  /* margin: 10px; */
+  padding: 10px 0px;
 }
 
 .products .products__info > svg:hover {
@@ -343,16 +352,12 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   padding: 12.5px;
   z-index: 5;
   border: 1px solid transparent;
   border-radius: 50%;
   transition: 0.2s;
-}
-
-#previous {
-  position: relative;
-  left: -15px;
 }
 
 #next {
@@ -395,9 +400,9 @@ main {
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: start;
   gap: 20px;
   padding: 15px;
+  justify-content: center;
 }
 
 .info > h2 {
@@ -425,7 +430,7 @@ main {
 .controller {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 
@@ -435,7 +440,6 @@ main {
   align-items: center;
   width: 100%;
   padding: 15px 0px 15px 0px;
-  margin: 10px 28px 10px 10px;
 }
 
 .controller__prices .controller__cost > h1 {
@@ -472,11 +476,9 @@ main {
 /* Buttons */
 .controller__buttons {
   display: flex;
-  width: 100%;
+  width: 99%;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 22px 5px 5px;
-  margin: 10px 28px 10px 10px;
   border: none;
   border-radius: 7px;
 }
@@ -507,7 +509,7 @@ main {
   background-color: rgb(247, 248, 253);
   padding: 25px;
   position: relative;
-  left: 30px;
+  left: 24px;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   border: 1px solid transparent;
@@ -598,14 +600,14 @@ main {
   }
 }
 
-/* Desktop */
+/* Tablet */
 @media screen  and (min-width:768px) {
   
   .header{
     justify-content: space-between;
     width: 80%;
     margin: 0 auto;
-    padding: 15px 0px 30px 0px;
+    padding: 15px 0px 24px 0px;
     border-bottom: 2px solid rgb(246, 245, 247);
   }
   
@@ -649,25 +651,30 @@ main {
 
   .header__options > li > div{
     height: 3px;
-    top: 39px;
+    top: 32px;
   }
   
   .header__avatar{
     width: auto;
   }
 
+  /* 
+    ! main 
+  */
   main{
+    max-width: 85vw;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(12, 8fr);
+    grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(4,1fr);
-    height: 80%;
-    padding-top: 20px;
+    height: 67%;
+    padding-top: 35px;
+    margin: 0 auto;
   }
 
   .shopping__cart{
     max-width: 335px;
-    height: 45%;
+    height: 50%;
     top: -42px;
     right: 2%;
     left: auto;
@@ -697,18 +704,21 @@ main {
     font-size: 13px;
     text-align: start;
     font-weight: 600;
-    padding: 10px 10px 6px 0px;
+    padding: 10px 0px;
+    margin: 0px 5px;
   }
 
   .products__info .products__currentPrice{
     font-size: 15px;
-    padding: 4px;
+    padding: 4px 0px;
     font-weight: 600;
+    margin: 0px 4px;
   }
   .products__info .products__total{
     font-size: 15px;
     font-weight: 600;
-    margin: 0px;
+    margin: 0px 4px;
+    padding: 4px 0px;
   }
 
   .products__button{
@@ -760,10 +770,11 @@ main {
   }
 
   .gallery{
+    height: 75vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    grid-column: 3/5;
+    grid-column: 2/5;
     grid-row: 1/4;
     width: 320px;
   }
@@ -836,9 +847,11 @@ main {
   } 
 
   .info{
-    grid-column: 6/ span 5;
+    padding-top: 20px;
+    grid-column: 6/ span 4;
     grid-row: 1/2;
     gap: 20px;
+    padding: 40px 0px 0px 0px;
   }
 
   .info > h2{
@@ -847,24 +860,24 @@ main {
 
   .info > h1{
     font-size: clamp(1.25rem, -5.0615rem + 11.4754vw, 2.125rem);
-    padding-bottom: 8px;
   }
 
   .info > p{
-    font-size: clamp(0.625rem, -0.1963rem + 1.7107vw, 0.875rem);
     font-weight: 600;
     line-height: 20px;
+    font-size: 0.8em;
+    padding: 10px 0px;
   }
 
   .controller{
-    grid-column: 6/ span 5;
+    grid-column: 6/ span 4;
     grid-row: 2/4;
     display: grid;
-    justify-content: start;
-    align-items: start;
+    justify-content: space-evenly;
     grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,100px) ;
-    height: 200px;
+    grid-template-rows: repeat(2,1fr);
+    height: 150px;
+    align-items: start;
   }
  
   .controller .controller__prices{
@@ -872,7 +885,6 @@ main {
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    margin: 15px;
   }
 
   .controller .controller__cost{
@@ -914,7 +926,6 @@ main {
   .controller .controller__submit{
     grid-column: 2/4;
     grid-row: 2/2;
-    width: clamp(80px, 70%, 70%);
     margin: 0px;
   }
 
@@ -930,3 +941,27 @@ main {
     left: -8px;
   }
 }
+/* Button submit */
+@media screen and (min-width: 768px) and (max-width: 810px) {
+  .info{
+    padding-top: 0px;
+  }
+  
+  .controller {
+    grid-column: 6 / span 5;
+  }
+}
+
+
+@media screen and (min-width: 810px) and (max-width: 1300px) {
+  .info{
+    padding-top: 30px;
+  }
+}
+
+@media screen and (min-width: 1300px){
+  main .slider{
+    transform: translate(-50%, 2%);
+  }
+}
+

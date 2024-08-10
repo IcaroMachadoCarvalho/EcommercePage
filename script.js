@@ -8,8 +8,7 @@ let indexSlide = 0;
 function currentSlide(index) {
   clearSlide();
   slides[index].style.display = "block";
-  document.querySelector('#imgGalleryMain')
-  .setAttribute('data-index', index);
+  document.querySelector("#imgGalleryMain").setAttribute("data-index", index);
 }
 
 function clearSlide() {
@@ -25,23 +24,20 @@ btnPrevious.addEventListener("click", () => {
     currentSlide(indexSlide);
   }
   let galSlider = document.querySelectorAll(".gallery__slider");
-  galSlider.length > 0? galSlider[indexSlide].click(): null;
-    currentSlide(indexSlide);
-  });
-
-  btnNext.addEventListener("click", () => {
-    indexSlide++;
-    if (indexSlide == 4) {
-      indexSlide = 0;
-      currentSlide(indexSlide);
-    }
-    let galSlider = document.querySelectorAll(".gallery__slider");
-    galSlider.length > 0? galSlider[indexSlide].click(): null;
+  galSlider.length > 0 ? galSlider[indexSlide].click() : null;
   currentSlide(indexSlide);
 });
 
-clearSlide();
-currentSlide(0);
+btnNext.addEventListener("click", () => {
+  indexSlide++;
+  if (indexSlide == 4) {
+    indexSlide = 0;
+    currentSlide(indexSlide);
+  }
+  let galSlider = document.querySelectorAll(".gallery__slider");
+  galSlider.length > 0 ? galSlider[indexSlide].click() : null;
+  currentSlide(indexSlide);
+});
 
 // Navbar
 const navBar = document.querySelector("#navBar");
@@ -55,6 +51,8 @@ menuBtn.addEventListener("click", () => {
   headerOptions.style.opacity = "1";
   navBar.style.opacity = 1;
   navBar.style.width = "55%";
+  navBar.style.height = `${document.body.scrollHeight}px`;
+  headerBackground.style.height = `${document.body.scrollHeight}px`;
   headerBackground.style.opacity = 0.5;
   headerBackground.style.zIndex = 8;
 });
@@ -64,6 +62,8 @@ closeNav.addEventListener("click", () => {
   headerOptions.style.opacity = "0";
   navBar.style.width = "0%";
   navBar.style.opacity = 0;
+  navBar.style.height = "100%";
+  headerBackground.style.height = "100%";
   headerBackground.style.opacity = 0;
   headerBackground.style.zIndex = -10;
 });
@@ -71,6 +71,8 @@ closeNav.addEventListener("click", () => {
 // Close menu without clicking the close icon
 headerBackground.addEventListener("click", () => {
   headerOptions.style.opacity = "0";
+  navBar.style.height = "100%";
+  headerBackground.style.height = "100%";
   if (window.innerWidth <= 768) {
     navBar.style.width = "0%";
     navBar.style.opacity = 0;
@@ -85,6 +87,36 @@ headerBackground.addEventListener("click", () => {
   headerBackground.style.opacity = 0;
   headerBackground.style.zIndex = -10;
 });
+
+let resizeElements = () => {
+  if (document.body.offsetWidth < 768.0) {
+    // makes the submit part responsive
+    document.querySelector(".add").style.display = "inline-block";
+    document.querySelector(".addCart").style.left = "-8px";
+    // Navbar fades away
+    navBar.style.width = "0";
+    navBar.style.opacity = 0;
+    // headerBackground fades away
+    headerBackground.style.opacity = 0;
+    navBar.style.height = "100%";
+    headerBackground.style.height = "100%";
+    // Slider is visible
+    slider.style.display = "block";
+    removeChildrenSlides();
+  } else {
+    document.querySelector(".add").style.display = "none";
+    document.querySelector(".addCart").style.left = 0;
+    headerOptions.style.opacity = 1;
+    navBar.style.width = "100%";
+    navBar.style.opacity = 1;
+    headerBackground.style.opacity = 0;
+    slider.style.display = "none";
+  }
+  if (document.body.offsetWidth >= 1073.64) {
+    document.querySelector(".add").style.display = "inline-block";
+    document.querySelector(".addCart").style.left = "-8px";
+  }
+};
 
 // Shopping section
 const btnMinus = document.querySelector("#btnMinus");
@@ -135,7 +167,7 @@ const iconCart = document.querySelector("#iconCart");
 const iconQuantity = document.querySelector("#iconQuantity");
 let currentQuantity = 0;
 
-// This event will modfiy the cart and it´s icon
+// This event will modify the cart and it´s icon
 avatarCart.addEventListener("click", () => {
   if (shoppingCart.style.opacity == "1") {
     iconCart.classList.remove("active");
@@ -162,13 +194,22 @@ function updatePrices(items) {
 productsBlock.style.display = "none";
 
 const deleteItems = document.querySelector("#deleteItems");
+const submit = document.querySelector(".products__button");
 
-deleteItems.onclick = () => {
+const removeItemsCart = () => {
   currentQuantity = 0;
   iconQuantity.innerHTML = currentQuantity;
   emptyTitle.style.display = "block";
   productsBlock.style.display = "none";
   document.querySelector("#iconQuantity").style.opacity = "0";
+}
+
+deleteItems.onclick = () => {
+  removeItemsCart();
+};
+
+submit.onclick = () => {
+  removeItemsCart();
 };
 
 function removeChildrenSlides() {
@@ -176,7 +217,9 @@ function removeChildrenSlides() {
   for (let i = 0; i < sliderChildren.length; i++) {
     if (sliderChildren[i].classList.contains("closeSlider")) {
       sliderChildren[i].remove();
-    } else if (sliderChildren[i].classList.contains("gallery__secondary--slider")) {
+    } else if (
+      sliderChildren[i].classList.contains("gallery__secondary--slider")
+    ) {
       sliderChildren[i].remove();
     }
   }
@@ -184,43 +227,28 @@ function removeChildrenSlides() {
 
 // make the buy button responsive in these measurements
 window.onresize = () => {
-  if(window.innerWidth < 768.0) {
-    document.querySelector(".add").style.display = "inline-block";
-    document.querySelector(".addCart").style.left = "-8px";
-    navBar.style.width = "0%";
-    navBar.style.opacity = 0;
-    headerBackground.style.opacity = 0;
-    slider.style.display = "block";
-    removeChildrenSlides();
-  }else if (window.innerWidth >= 768.0) {
-    // window.innerWidth >= 768.0 && window.innerWidth <= 1073.64
-    document.querySelector(".add").style.display = "none";
-    document.querySelector(".addCart").style.left = 0;
-    headerOptions.style.opacity = 1;
-    navBar.style.width = "100%";
-    navBar.style.opacity = 1;
-    headerBackground.style.opacity = 0;
-    slider.style.display = "none";
-  }
+  resizeElements();
 };
 
 // Functions to the gallery
 const galleryOptions = document.querySelectorAll(".gallery__options");
 // updates to the selected product
-function product(pos,status) {
+function product(pos, status) {
   for (let i = 0; i < galleryOptions.length; i++) {
     galleryOptions[i].classList.remove("selected");
   }
   galleryOptions[pos].classList.add("selected");
-  if(status){changeContent(pos);}
+  if (status) {
+    changeContent(pos);
+  }
 }
 
-function select(num){
+function select(num) {
   let sliderOptions = document.querySelectorAll(".gallery__slider");
   for (let i = 0; i < sliderOptions.length; i++) {
     sliderOptions[i].classList.remove("selected");
   }
-  if(sliderOptions[num]){
+  if (sliderOptions[num]) {
     sliderOptions[num].classList.add("selected");
   }
 }
@@ -302,18 +330,12 @@ function showMore(index) {
   select(index);
 }
 
-let galleryMainIndex = () =>{
+let galleryMainIndex = () => {
   let galleryMain = document.querySelector("#imgGalleryMain");
   let galleryMainIndex = galleryMain.getAttribute("data-index");
   showMore(galleryMainIndex);
-  currentSlide(galleryMainIndex); 
-}
+  currentSlide(galleryMainIndex);
+};
 
-// consertar seta com gallerysecundary slider 25 ok
-// double click gallery main ok
-// max-width no desktop version ok
-// consertar 179 resize ok mas testar
-// melhorar o header mobile 
-
-
-// Conserta o slider e header Mobile, e adiciona funcionalidade na lightbox 
+clearSlide();
+currentSlide(0);
