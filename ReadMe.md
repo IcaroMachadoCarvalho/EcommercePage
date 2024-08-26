@@ -5,7 +5,7 @@
 
 <p id="description">Esse projeto mostra uma página de uma loja virtual de um site idealizada pelo FrontEnd Mentor. Tendo em sua composição o conteúdo principal uma navbar, a seção dos produtos, carrinho de compras e pedidos.</p>
 
-<h3>⚙️ Status: Em desenvolvimento</h3>
+<h3>⚙️ Status: Concluído</h3>
 
 <h2>Screenshots Mobile</h2>
 <div align="center">
