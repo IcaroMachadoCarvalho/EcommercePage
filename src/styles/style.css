@@ -16,10 +16,6 @@
   animation-iteration-count: 1;
 }
 
-/* html::after,html::before,body::after,body::before {
-  width: 0px;
-} */
-
 html,body {
   position: relative;
   width: 100vw;
@@ -31,7 +27,6 @@ html,body {
 
 body {
   background-color: white;
-  /* overflow-x: hidden; */
   font-family: "kumbh", sans-serif;
 }
 
@@ -291,15 +286,17 @@ main {
 
 .products__info .products__title,
 .products__currentPrice {
+  font-size: 15px;
   color: rgb(106, 110, 118);
   padding: 10px 0px 0px 0px;
 }
 
 .products .products__total {
-  font-size: 16px;
+  font-size: 18px;
   display: inline-block;
   /* margin: 10px; */
   padding: 10px 0px;
+  font-weight: 500;
 }
 
 .products .products__info > svg:hover {
@@ -902,7 +899,7 @@ main {
   }
 
   .controller .original__price{
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .controller__buttons{
