@@ -52,7 +52,7 @@ git clone https://github.com/IcaroMachadoCarvalho/EcommercePage.git
 
 <p>3. Abra o projeto pelo explorador de arquivos</p>
 
-<p>4. Execute o projeto</p>
+<p>4. Execute o projeto pelo navegador de sua preferência</p>
 
 
 <h2>🚀 Para ver mais projetos meus, clique aqui!</h2>
